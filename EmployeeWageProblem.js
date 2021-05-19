@@ -239,7 +239,8 @@ const findTotal = (totalVal, dailyVal) =>
     
             console.log("UC 11D NonWorkingDayNums: "+nonWorkingDayNums);
         }
-    // UC12 Extension of employee payroll class, add startDate and gender.
+    {
+        // UC12 Extension of employee payroll class, add startDate and gender.
     class EmployeePayrollData 
     {
         // property
@@ -277,3 +278,62 @@ const findTotal = (totalVal, dailyVal) =>
         console.log(employeePayrollData.toString()); 
         let newEmployeePayrollData = new EmployeePayrollData(2, "Terrisa", 40000,'F',new Date()); 
         console.log(newEmployeePayrollData.toString()); 
+}
+{
+// UC 12 & 13 Extension of employee payroll class, add startDate and gender and Regex.
+    class EmployeePayrollData 
+    {
+        // property
+        id; 
+        salary; 
+        gender;
+        startDate;
+
+       // constructor
+        constructor(...params) 
+       { 
+            this.id = params[0]; 
+            this.name = params[1];
+            this.salary = params[2];
+            this.gender = params[3];
+            this.startDate = params[4];
+        } 
+
+       // getter and setter method 
+       get name() { return this._name; } 
+       set name(name) { 
+        let checkName=RegExp('^[A-Z]{1}[a-z]{3,}$');
+        if(checkName.test(name))
+        {
+             this._name=name;
+        }
+        else
+        {
+             throw "InCorrect name";
+        }
+        
+    this._name = name; 
+       } 
+       
+       // method 
+       toString() {
+           const options={year:'numeric',month:'long',day:'numeric'};
+           const empDate=this.startDate===undefined?"undefined":this.startDate.toLocaleDateString("en-US",options);
+            return "id=" + this.id + ", name=" + this.name + ", salary=" + this.salary+ ", gender=" + this.gender+ ", startDate=" + empDate; 
+        } 
+    }
+        let employeePayrollData = new EmployeePayrollData(1, "Mark", 30000); 
+        console.log("Extension of Employee PayRoll "+employeePayrollData.toString());
+        try
+        {
+            employeePayrollData.name = "John"; 
+            console.log("Setting name "+employeePayrollData.name );
+        }
+        catch(e)
+        {
+            console.error(e);
+        }        
+        console.log(employeePayrollData.toString()); 
+        let newEmployeePayrollData = new EmployeePayrollData(2, "Terrisa", 40000,'F',new Date()); 
+        console.log(newEmployeePayrollData.toString()); 
+}
