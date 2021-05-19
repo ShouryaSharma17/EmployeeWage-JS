@@ -162,3 +162,28 @@ console.log("UC 7G - Number of days employee worked: "+empDailyWageArray.reduce(
 console.log("UC 8 - Contents of the map:")
 console.log(empDailyWageMap);
 console.log("Total wage using emp wage map: "+Array.from(empDailyWageMap.values()).reduce(totalWages));
+//UC9 Employee Wage Using Arrow Function
+const findTotal = (totalVal, dailyVal) => 
+        {
+            return totalVal + dailyVal; 
+        }
+        let count = 0; 
+        let totalHours = Array.from(empDailyHourMap.values()).reduce(findTotal, 0);
+        let totalSalary = empDailyWageArray.filter(dailyWage => dailyWage > 0)
+                                        .reduce(findTotal,0); 
+                                        
+        console.log("Emp Wage using Arrow Function: " + " Total Hours: " + totalHours + " Total Wages: " + totalSalary); 
+        
+        let nonWorkingDays = new Array(); 
+        let partWorkingDays = new Array(); 
+        let fullWorkingDays = new Array(); 
+        empDailyHourMap.forEach( (value,key,map) => 
+        { 
+            console.log("key =>"+key+"value:"+value);
+            if (value == 8) fullWorkingDays.push(key);
+            else if (value == 4) partWorkingDays.push(key); 
+            else nonWorkingDays.push(key); 
+        }); 
+        console.log("Full Working Days: "+fullWorkingDays); 
+        console.log("Part Working Days: "+partWorkingDays);
+        console. log("Non Working Days: "+nonWorkingDays);
