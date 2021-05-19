@@ -71,3 +71,13 @@ console.log("Refractor UC2 to Write Functions");
     let empCheck= Math.floor((Math.random()*10)%3);
     let empHrs=getWorkingHrs(empCheck);
     console.log("empWage For UC3: "+WAGE_PER_HOUR*emp_hours);
+    //UC4 Calculate Wages For Month
+    const NUM_OF_WORKING_DAYS=20;
+    let totalWorkinghrs=0;
+    for(let day=0;day<=NUM_OF_WORKING_DAYS;day++)
+    {
+        let empCheck= Math.floor((Math.random()*10)%3);
+        totalWorkinghrs+=getWorkingHrs(empCheck); 
+    }
+    employeeWage= totalWorkinghrs*WAGE_PER_HOUR;
+    console.log("EmployeeWage for month is: "+ employeeWage);
