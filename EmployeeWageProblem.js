@@ -52,3 +52,22 @@ switch(employeePresence)
 }
 let employeeWage= WAGE_PER_HOUR*emp_hours;
 console.log(employeeWage);
+//UC3 Refactor by writing functions to get working hours 
+console.log("Refractor UC2 to Write Functions");  
+    function getWorkingHrs(empCheck)
+    {
+        switch(empCheck)
+        {
+            case 1:       
+                return PART_TIME_HRS;
+                
+            case 2:      
+                 return Full_TIME_HRS;           
+            default:
+                return 0;        
+    
+        }
+    }
+    let empCheck= Math.floor((Math.random()*10)%3);
+    let empHrs=getWorkingHrs(empCheck);
+    console.log("empWage For UC3: "+WAGE_PER_HOUR*emp_hours);
