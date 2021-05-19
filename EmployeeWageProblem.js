@@ -93,3 +93,9 @@ console.log("Refractor UC2 to Write Functions");
         totalEmpHrs+=getWorkingHrs(empCheck); ;
     }
     console.log("Total working days: "+totalWorkingDays +" Total Wage: "+ totalEmpHrs*WAGE_PER_HOUR);
+    //UC6 Store daily and total wage of employee
+    function calculateDailyWage(empHrs)
+    {
+        return empHrs*WAGE_PER_HOUR;
+    }
+    console.log("Employee Wages are: ",empDailyWageArray);
